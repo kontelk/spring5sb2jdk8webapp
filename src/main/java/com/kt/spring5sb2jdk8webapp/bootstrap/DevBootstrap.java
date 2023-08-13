@@ -14,9 +14,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
-    private AuthorRepository authorRepository;
-    private BookRepository bookRepository;
-    private PublisherRepository publisherRepository;
+    private final AuthorRepository authorRepository;
+    private final BookRepository bookRepository;
+    private final PublisherRepository publisherRepository;
 
     public DevBootstrap(AuthorRepository authorRepository,
                         BookRepository bookRepository,
@@ -43,18 +43,15 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         Book ddd = new Book("Domain Driven Design", "1234", publisher);
         eric.getBooks().add(ddd);
         ddd.getAuthors().add(eric);
-
         authorRepository.save(eric);
         bookRepository.save(ddd);
 
-
         //Rod
-//        Author rod = new Author("Rod", "Johnson");
-//        Book noEJB = new Book("J2EE Development without EJB", "23444", publisher );
-//        rod.getBooks().add(noEJB);
-//        noEJB.getAuthors().add(rod);
-//
-//        authorRepository.save(rod);
-//        bookRepository.save(noEJB);
+        Author rod = new Author("Rod", "Johnson");
+        Book noEJB = new Book("J2EE Development without EJB", "23444", publisher );
+        rod.getBooks().add(noEJB);
+        noEJB.getAuthors().add(rod);
+        authorRepository.save(rod);
+        bookRepository.save(noEJB);
     }
 }

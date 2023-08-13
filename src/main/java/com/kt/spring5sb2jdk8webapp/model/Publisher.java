@@ -1,6 +1,9 @@
 package com.kt.spring5sb2jdk8webapp.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  * Created by kontelk on 8/13/23.
